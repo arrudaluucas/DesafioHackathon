@@ -3,9 +3,6 @@
     
 }
 
-.card.mb-8{
-
-}
 
 .data-main{
     text-align: center;
@@ -28,7 +25,39 @@
 
 .due-date{
     margin-top: 20px;
+    display: flex;
+    align-items: center;
 }
+
+.sub-due-date{
+    margin: 10px 10px 10px;
+
+}
+
+.value{
+    margin: 10px 10px 10px;
+}
+
+.quantity{
+    margin-top: 15px;
+    margin-left: 5px;    
+}
+
+.quantity input {
+    width: 60px;
+}
+
+/* Datas de envio */
+
+.due-date-send{
+    margin: 10px;
+}
+
+.due-date-send label {
+    margin: 10px;
+}
+
+
 
 .due-date input {
     margin-bottom: 20px;
@@ -45,3 +74,14 @@
     margin-bottom: 20px;
 }
 
+
+.button{
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 80px;
+    margin-bottom: 20px;
+}
+
+.button button {
+    width: 200px;
+}
