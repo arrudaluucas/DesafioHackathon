@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SmsController::class, 'index']);
+
+Route::post('/send', [SmsController::class, 'send']);

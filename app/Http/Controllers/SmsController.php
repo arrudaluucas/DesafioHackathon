@@ -9,4 +9,8 @@ class SmsController extends Controller
     public function index(){
         return view('templateSms.index');
     }
+
+    public function send(Request $request){
+        dd($request);
+    }
 }
