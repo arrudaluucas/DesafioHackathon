@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/import_base_phone', [\App\Http\Controllers\ImportController::class, 'getImportPhone'])->name('import_phone_view');
+
+Route::post('/import_phone', [\App\Http\Controllers\ImportController::class, 'importBasePhone'])->name('import_phone');
