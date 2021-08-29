@@ -19,7 +19,7 @@ class SmsController extends Controller
     }  
     public function validPhone($phone){
 
-    return true;
+        return true;
     }
     public function generateFile()
     {
@@ -52,6 +52,6 @@ class SmsController extends Controller
             '1655',
             'ppppP_ftp2',
             '5869'
-        ))->delay(5)
+        ))->delay(5);
     }
 }
