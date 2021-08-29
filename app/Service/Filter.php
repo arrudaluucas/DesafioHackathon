@@ -9,44 +9,40 @@ class Filter
 
     public function queryBuilder(array $arrayPropriedades)
     {
-        $client = DB::table('client')->where(function ($query) {
-            $query->where(function ($query) use ($arrayPropriedades) {
-                $query->where('phone', '=', $arrayPropriedades['phone']);
-                if ($arrayPropriedades['portfolio']) {
-                    $query->where('portfolio', '=', $arrayPropriedades['portfolio']);
-                }
-                if ($arrayPropriedades['type-business']) {
-                    $query->where('type-business', '=', $arrayPropriedades['type-business']);
-                }
-                if ($arrayPropriedades['past-due-date-first'] && $arrayPropriedades['past-due-date-exit']) {
-                    $query->whereBetween('past-due-date', [$arrayPropriedades['past-due-date-first'], $arrayPropriedades['past-due-date-exit']]);
-                }
-                if ($arrayPropriedades['date-send-first'] && $arrayPropriedades['date-send-exit']) {
-                    $query->whereBetween('date-send', [$arrayPropriedades['date-send-first'], $arrayPropriedades['date-send-exit']]);
-                }
-                if ($arrayPropriedades['value-first'] && $arrayPropriedades['value-exit']) {
-                    $query->whereBetween('value', [$arrayPropriedades['value-first'], $arrayPropriedades['value-exit']]);
-                }
-                if ($arrayPropriedades['past-due-date-first'] && !$arrayPropriedades['past-due-date-exit']) {
-                    $query->where('past-due-date', '>=', $arrayPropriedades['past-due-date-first']);
-                }
-                if ($arrayPropriedades['date-send-first'] && !$arrayPropriedades['date-send-exit']) {
-                    $query->where('date-send', '>=', $arrayPropriedades['date-send-first']);
-                }
-                if ($arrayPropriedades['value-first'] && !$arrayPropriedades['value-exit']) {
-                    $query->where('value', '>=', $arrayPropriedades['value-first']);
-                }
-                if (!$arrayPropriedades['past-due-date-first'] && $arrayPropriedades['past-due-date-exit']) {
-                    $query->where('past-due-date', '<=', $arrayPropriedades['past-due-date-exit']);
-                }
-                if (!$arrayPropriedades['date-send-first'] && $arrayPropriedades['date-send-exit']) {
-                    $query->where('date-send', '<=', $arrayPropriedades['date-send-exit']);
-                }
-                if (!$arrayPropriedades['value-first'] && $arrayPropriedades['value-exit']) {
-                    $query->where('value', '<=', $arrayPropriedades['value-exit']);
-                }
-            });
-        });
+        $client = DB::table('base_phone')
+            ->where(function ($query) {
+                $query->where(function ($query) use ($arrayPropriedades) {
+                    if ($arrayPropriedades['portfolio']) {
+                        $query->where('base_phone.carteira', '=', $arrayPropriedades['portfolio']);
+                    }
+                    if ($arrayPropriedades['type-business']) {
+                        $query->where('base_phone.tn', '=', $arrayPropriedades['type-business']);
+                    }
+                    if ($arrayPropriedades['past-due-date-first'] && $arrayPropriedades['past-due-date-exit']) {
+                        $query->whereBetween('base_banco.vencimento_dat', [$arrayPropriedades['past-due-date-first'], $arrayPropriedades['past-due-date-exit']]);
+                    }
+                    if ($arrayPropriedades['value-first'] && $arrayPropriedades['value-exit']) {
+                        $query->whereBetween('base_banco.valor_principal_num', [$arrayPropriedades['value-first'], $arrayPropriedades['value-exit']]);
+                    }
+                    if ($arrayPropriedades['past-due-date-first'] && !$arrayPropriedades['past-due-date-exit']) {
+                        $query->where('base_banco.vencimento_dat', '>=', $arrayPropriedades['past-due-date-first']);
+                    }
+                    if ($arrayPropriedades['value-first'] && !$arrayPropriedades['value-exit']) {
+                        $query->where('base_banco.valor_principal_num', '>=', $arrayPropriedades['value-first']);
+                    }
+                    if (!$arrayPropriedades['past-due-date-first'] && $arrayPropriedades['past-due-date-exit']) {
+                        $query->where('base_banco.vencimento_dat', '<=', $arrayPropriedades['past-due-date-exit']);
+                    }
+                    if (!$arrayPropriedades['value-first'] && $arrayPropriedades['value-exit']) {
+                        $query->where('base_banco.valor_principal_num', '<=', $arrayPropriedades['value-exit']);
+                    }
+                })
+                ->join('base_baco', function($join) {
+                    $join->on('base_banco.cpf_str', '=', 'base_phone.cpf')
+                        ->where('base_banco.contrato_str', 'base_phone.contrato')
+                        ->where('base_banco.tpn', 'base_phone.tn');
+                })
+                ->get();
         //Não sei o que fazer com essa query, vou deixar retornando e amanhã cedo discutimos
         return $client;
     }
