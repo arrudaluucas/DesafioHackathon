@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\ExportFileSms;
 use Illuminate\Http\Request;
 use App\Service\Filter;
+use App\Service\Validation;
 
 class SmsController extends Controller
 {
@@ -12,14 +13,13 @@ class SmsController extends Controller
         return view('templateSms.index');
     }
     public function send(Request $request){
-      $data = $request->all();
-      $requestIsValid = validPhone($data['phone']);
-      $service = new Filter();
-      $result = $service->queryBuilder($data);
-    }  
-    public function validPhone($phone){
-
-        return true;
+        $validation = new Validation();
+        $service = new Filter();
+        $data = $request->all();
+        $requestIsValid = $validation->phone($request['phone']);
+        if($requestIsValid){
+            $result = $service->queryBuilder($data);
+        }
     }
     public function generateFile()
     {
