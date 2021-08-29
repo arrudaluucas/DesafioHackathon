@@ -22,15 +22,15 @@ class SmsController extends Controller
         $result = $service->queryBuilder($data);
         $serviceExportFileSms = new ExportFileSms();
         return $serviceExportFileSms->generate(
-            $result,
+            $result['clients'],
             'S',
-            '0013',
+            $data['portfolio'],
             10994.46,
             '28082021',
             '1550',
             '1655',
             'ppppP_ftp2',
-            '5869'
+            $result['count']
         );
     }
 }
