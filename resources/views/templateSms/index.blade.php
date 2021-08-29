@@ -27,6 +27,13 @@
 
 
                             <div class="due-date">
+                                <label for="f">Atraso de</label>
+                                <input name="past-due-date-first" type="date">
+                                <label for="">Até</label>
+                                <input name="past-due-date-exit" type="date">
+                                <hr>
+                                </hr>
+                            </div>
 
                                 <div class="sub-due-date">
                                     <label for="f">Atraso de</label>
@@ -94,7 +101,30 @@
             </div>
 
             </section>
+                <section class="mb-3 checkbox">
+                    <div>
+                        <strong>Origem</strong>
+                    </div>
+                    <label for="">B</label>
+                    <input name="B" type="checkbox" class="form-check-input">
+                    <label for="">O</label>
+                    <input name="O" type="checkbox" class="form-check-input">
 
+                    <label for="">P</label>
+                    <input name="P" type="checkbox" class="form-check-input">
+
+                    <label for="">M</label>
+                    <input name="M" type="checkbox" class="form-check-input">
+
+                    <label for="">T</label>
+                    <input name="T" type="checkbox" class="form-check-input">
+                </section>
+
+                <section class="mb-3 checkbox">
+                    <div class="sub-classification">
+                        <div>
+                            <strong>Classificação</strong>
+                        </div>
 
             <section class="mb-3 checkbox">
                 <div>
