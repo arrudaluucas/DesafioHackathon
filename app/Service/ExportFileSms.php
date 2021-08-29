@@ -6,7 +6,14 @@ use Illuminate\Support\Facades\Storage;
 
 class ExportFileSms
 {
+    protected function setName($typeSms, $portfolio, $costCenter, $date, $begin, $trie, $sector, $count)
+    {
+        return $typeSms.' ['.$portfolio.'] '.$costCenter.' - '.$date.' '.$begin.' as '.$trie.' - '.$sector.' ['.$count.'] – 22.txt';
+    }
+
+
     /**
+     * @param $params array
      * @param $typeSms string - S = tipo do SMS ex: short cold
      * @param $portfolio string - Carteira
      * @param $costCenter float - Centro de custo
@@ -16,13 +23,6 @@ class ExportFileSms
      * @param $sector string - padrão de identificação do setor 
      * @param $count int - quantidade de envio (total de linhas do txt)
      */
-    protected function setName($typeSms, $portfolio, $costCenter, $date, $begin, $trie, $sector, $count)
-    {
-        return $typeSms.' ['.$portfolio.'] '.$costCenter.' - '.$date.' '.$begin.' as '.$trie.' - '.$sector.' ['.$count.'] – 22.txt';
-    }
-
-
-
     public function generate($params, $typeSms, $portfolio, $costCenter, $date, $begin, $trie, $sector, $count)
     {
         $fileName = $this->setName(
