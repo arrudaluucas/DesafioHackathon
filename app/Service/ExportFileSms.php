@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ExportFileSms
 {
+    
     protected function setName($typeSms, $portfolio, $costCenter, $date, $begin, $trie, $sector, $count)
     {
         return $typeSms.' ['.$portfolio.'] '.$costCenter.' - '.$date.' '.$begin.' as '.$trie.' - '.$sector.' ['.$count.'] – 22.txt';
@@ -42,5 +43,7 @@ class ExportFileSms
         }
 
         Storage::disk('local')->put($fileName, implode("\n", $contents));
+
+        return Storage::download($fileName);
     }
 }

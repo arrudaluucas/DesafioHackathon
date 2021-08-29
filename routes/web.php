@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DownloadFilesController;
 use App\Http\Controllers\SmsController;
 use Illuminate\Support\Facades\Route;
 
