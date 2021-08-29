@@ -1,5 +1,47 @@
-.data-main{
-    text-align: center;
-;
+.container{
+    margin: 20px;
     
 }
+
+.card.mb-8{
+
+}
+
+.data-main{
+    text-align: center;
+    
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.mb-3{
+    text-align: left;
+    
+}
+
+.mb-3 span:nth-child(3){
+    font-size: 12px;
+}
+
+.due-date{
+    margin-top: 20px;
+}
+
+.due-date input {
+    margin-bottom: 20px;
+}
+
+/**Começando campo origem**/
+
+.mb-3.checkbox  {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.selects-type{
+    margin-bottom: 20px;
+}
+
