@@ -21,9 +21,9 @@
 
                             <div class="due-date">
                                 <label for="f">Atraso de</label>
-                                <input type="date">
+                                <input name="past-due-date-first" type="date">
                                 <label for="">Até</label>
-                                <input type="date">
+                                <input name="past-due-date-exist" type="date">
                                 <hr>
                                 </hr>
                             </div>
@@ -79,9 +79,8 @@
                     </div>
                     <label for="">B</label>
                     <input name="B" type="checkbox" class="form-check-input">
-                    
                     <label for="">O</label>
-                    <input name="0" type="checkbox" class="form-check-input">
+                    <input name="O" type="checkbox" class="form-check-input">
 
                     <label for="">P</label>
                     <input name="P" type="checkbox" class="form-check-input">
