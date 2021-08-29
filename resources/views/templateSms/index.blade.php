@@ -11,10 +11,6 @@
             <div class="card-body">
                 <section class="data-main">
                     <div class="mb-3">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Estoque</label>
-                            <input name="file" type="file" accept=".csv" class="form-control" id="formGroupExampleInput">
-                        </div>
 
                         <div class="mb-3">
                             <span for="formGroupExampleInput" class="form-label">Mensagem</span>

@@ -39,11 +39,12 @@ class ExportFileSms
 
         $contents = [];
         foreach($params as $register) {
-            $contents[] = $register['phone'].'|'.$register['message'].'|'.$register['tpn_document'];
+            $contents[] = $register['phone'].'|'.$register['message'].'|'.$register['tpn'].'.'.$register['document'];
         }
 
-        Storage::disk('local')->put($fileName, implode("\n", $contents));
+        Storage::disk('local')->put('Export/'.$fileName, implode("\n", $contents));
 
         return Storage::download($fileName);
+
     }
 }
