@@ -1,3 +1,4 @@
+
 function handlePress(){
     var inputCaracteres = document.querySelector('#caracters');
     
@@ -9,4 +10,6 @@ function handlePress(){
 
     return quantity;
 }
+
+
 
