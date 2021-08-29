@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SmsController::class, 'index']);
-
 Route::post('/send', [SmsController::class, 'send']);
+Route::get('/teste-generate-file-sms', [SmsController::class, 'generateFile']);
