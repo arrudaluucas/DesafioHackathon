@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DownloadFilesController;
 use App\Http\Controllers\SmsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SmsController::class, 'index']);
+Route::get('/import_base_phone', [\App\Http\Controllers\ImportController::class, 'getImportPhone'])->name('import_phone_view');
 
+Route::post('/import_phone', [\App\Http\Controllers\ImportController::class, 'importBasePhone'])->name('import_phone');
+Route::get('/', [SmsController::class, 'index']);
 Route::post('/send', [SmsController::class, 'send']);
+Route::get('/teste-generate-file-sms', [SmsController::class, 'generateFile']);
