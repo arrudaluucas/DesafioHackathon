@@ -13,7 +13,7 @@ class SmsController extends Controller
 
     public function send(Request $request){
         $data = $request->all();
-        $requestIsValid = validPhone($data['phone'])
+        $requestIsValid = validPhone($data['phone']);
         $service = new Filter();
         $result = $service->queryBuilder($data);
     }
