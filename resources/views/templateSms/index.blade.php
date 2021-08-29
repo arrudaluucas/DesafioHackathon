@@ -17,7 +17,7 @@
                         <div class="mb-3">
                             <span for="formGroupExampleInput" class="form-label">Mensagem</span>
                             <textarea name="message" type="text" class="form-control" id="caracters" onkeyup="handlePress()"></textarea>
-                            <span>Sua mensagem tem <span class="msg"></span> caracteres! Máximo: <strong>160</strong></span>
+                            <span>Sua mensagem tem <span id="msg"></span> caracteres! Máximo: <strong>160</strong></span>
 
                             <div class="due-date">
                                 <label for="f">Atraso de</label>
